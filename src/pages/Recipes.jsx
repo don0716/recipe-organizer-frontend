@@ -67,7 +67,7 @@ function Recipes() {
                 {filteredRecipes ? filteredRecipes?.map(recipe => (
                     <div className="col-md-3 py-2" key={recipe._id}>
 
-                        <div className="card ">
+                        <div className="card h-100" >
                             <img src={recipe.imageLink} alt={`${recipe.name} Image`} className="card-img-top img-fluid" style={{objectFit: "cover", height: "60vh"}}  />
 
                             <div className="card-body">
