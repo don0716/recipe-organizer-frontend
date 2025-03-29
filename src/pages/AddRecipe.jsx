@@ -10,9 +10,11 @@ const AddRecipe = () => {
         ingredients: "",
         instructions: []
     })
+    const [successMessage, setSuccessMessage] = useState("")
 
     const recipeSubmitHandler = async (event) => {
         event.preventDefault()
+        setSuccessMessage("")
 
         try{
 
@@ -26,10 +28,19 @@ const AddRecipe = () => {
             })
             if(!res.ok){
                 console.log(res)
+                setSuccessMessage("Failed to Add Recipe.")
                 throw "Failed to Add Recipe"
             } else {
                 const data = await res.json()
                 console.log("Added Recipe: ", data)
+                setSuccessMessage("Successfully Added Recipe")
+                setAddRecipeFormData({
+                    name: "",
+                    cuisine: "",
+                    imageLink: "",
+                    ingredients: "",
+                    instructions: []
+                })
             }
 
         }catch(error){
@@ -56,6 +67,8 @@ const AddRecipe = () => {
           <Header />
           <div className="container">
             <h1 className="py-2">Add Recipe</h1>
+
+            <div>{successMessage}</div>
 
             <form onSubmit={recipeSubmitHandler}>
                 <label className="form-label"  htmlFor="name">Name:</label>

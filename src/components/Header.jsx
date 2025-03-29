@@ -3,7 +3,7 @@ const Header = () => {
     return (
         <div className="navbar bg-light py-4">
             <div className="container d-flex justify-content-between align-items-center">
-                  <h2>Recipe Organiser</h2>
+                  <Link to="/home" style={{textDecoration: "none"}}><h2 className="text-dark">Recipe Organiser</h2></Link>
 
                   <ul className="navbar-nav flex-row gap-3">
                     <li className="nav-item">
